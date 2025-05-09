@@ -43,13 +43,13 @@ void averageDegree(int source) {
         totalDegree += neighbors.size();
     }
     double avg = totalDegree / nodes.size();
-    ofstream out("average_degree.txt");
+    ofstream out("../Results/average_degree.txt");
     out << "Average Degree: " << avg << endl;
     cout << "Average Degree: " << avg << endl;
 }
 
 int main() {
-    loadGraph("bitcoin_weighted_edges.txt", false); // Undirected for MST and cycle
+    loadGraph("../Dataset/../Dataset/bitcoin_weighted_edges.txt", false); // Undirected for MST and cycle
 
     averageDegree(1);
 

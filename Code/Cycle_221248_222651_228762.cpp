@@ -57,12 +57,12 @@ void detectCycle() {
             break;
         }
     }
-    ofstream out("cycle_detection.txt");
+    ofstream out("../Results/cycle_detection.txt");
     out << (hasCycle ? "Cycle found" : "No cycle detected") << endl;
 }
 
 int main() {
-    loadGraph("bitcoin_weighted_edges.txt", false); // Undirected for MST and cycle
+    loadGraph("../Dataset/bitcoin_weighted_edges.txt", false); // Undirected for MST and cycle
 
 
     detectCycle();

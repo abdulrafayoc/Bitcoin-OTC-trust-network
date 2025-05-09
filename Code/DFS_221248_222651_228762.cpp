@@ -41,7 +41,7 @@ void dfs(int start) {
     unordered_map<int, bool> visited;
     stack<int> s;
     s.push(start);
-    ofstream trace("dfs_trace.txt");
+    ofstream trace("../Traces/dfs_trace.txt");
 
     while (!s.empty()) {
         int u = s.top(); s.pop();
@@ -56,7 +56,7 @@ void dfs(int start) {
 }
 
 int main() {
-    loadGraph("bitcoin_weighted_edges.txt", true);
+    loadGraph("../Dataset/bitcoin_weighted_edges.txt", true);
     int source = 1; // Choose appropriate source node
 
     dfs(source);

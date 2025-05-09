@@ -1,5 +1,5 @@
 // C++ implementations for CS-2009 project
-// Algorithms: Prim's MST, Kruskal's MST, Diameter of Graph, Cycle Detection
+// Algorithms: Kruskal's MST 
 
 #include <iostream>
 #include <vector>
@@ -50,7 +50,7 @@ void unite(int u, int v) {
 void kruskalMST() {
     for (int node : nodes) parent[node] = node;
     sort(allEdges.begin(), allEdges.end());
-    ofstream out("kruskal_mst.txt");
+    ofstream out("../Results/kruskal_mst.txt");
     int totalWeight = 0;
     for (Edge e : allEdges) {
         if (find(e.u) != find(e.v)) {
@@ -64,20 +64,12 @@ void kruskalMST() {
 
 
 int main() {
-    loadGraph("bitcoin_weighted_edges.txt", false); // Undirected for MST and cycle
+    loadGraph("../Dataset/bitcoin_weighted_edges.txt", false); // Undirected for MST and cycle
 
     auto start = chrono::high_resolution_clock::now();
-    primMST(*nodes.begin());
-    auto end = chrono::high_resolution_clock::now();
-    cout << "Prim's MST Time: " << chrono::duration<double>(end - start).count() << "s\n";
-
-    start = chrono::high_resolution_clock::now();
     kruskalMST();
-    end = chrono::high_resolution_clock::now();
+    auto end = chrono::high_resolution_clock::now();
     cout << "Kruskal's MST Time: " << chrono::duration<double>(end - start).count() << "s\n";
-
-    diameterOfGraph();
-    detectCycle();
 
     return 0;
 }

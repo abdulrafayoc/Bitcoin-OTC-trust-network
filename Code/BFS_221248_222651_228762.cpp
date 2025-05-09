@@ -42,7 +42,7 @@ void bfs(int start) {
     queue<int> q;
     q.push(start);
     visited[start] = true;
-    ofstream trace("bfs_trace.txt");
+    ofstream trace("../Traces/bfs_trace.txt");
 
     while (!q.empty()) {
         int u = q.front(); q.pop();
@@ -58,7 +58,7 @@ void bfs(int start) {
 
 
 int main() {
-    loadGraph("bitcoin_weighted_edges.txt", true);
+    loadGraph("../Dataset/bitcoin_weighted_edges.txt", true);
     int source = 1; // Choose appropriate source node
 
     bfs(source);

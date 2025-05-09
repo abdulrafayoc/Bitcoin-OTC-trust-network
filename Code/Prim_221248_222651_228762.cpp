@@ -58,7 +58,7 @@ void primMST(int start) {
         }
     }
 
-    ofstream out("prim_mst.txt");
+    ofstream out("../Results/prim_mst.txt");
     int totalWeight = 0;
     for (auto [v, u] : parent) {
         out << u << " - " << v << "\n";
@@ -69,7 +69,7 @@ void primMST(int start) {
 
 
 int main() {
-    loadGraph("bitcoin_weighted_edges.txt", false); // Undirected for MST and cycle
+    loadGraph("../Dataset/bitcoin_weighted_edges.txt", false); // Undirected for MST and cycle
 
     auto start = chrono::high_resolution_clock::now();
     primMST(*nodes.begin());
